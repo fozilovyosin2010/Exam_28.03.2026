@@ -6,8 +6,14 @@
   font-style: normal;
   font-variation-settings: "wdth" 100;
 }
+
+.p {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
 .sec {
-  max-width: 1600px;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
