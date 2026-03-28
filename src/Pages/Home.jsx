@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 
 import bgWave from "../img/waveBg.png";
 import bgWave2 from "../img/waveBg2.png";
@@ -10,13 +10,17 @@ import levHaolam from "../img/levHaolam.png";
 import papajohns from "../img/papajohns.png";
 import shneider from "../img/shneider.png";
 
+import { EffectCards } from "swiper/modules";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
-
+// Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+import "swiper/css/effect-cards";
+
+import Rec2 from "../img/Rec2.png";
+import Rec3 from "../img/Rec3.png";
+import Rec4 from "../img/Rec4.png";
 
 const Home = () => {
   const imgList = [levHaolam, shneider, aliexpress, laroche, papajohns, kfc];
@@ -29,10 +33,23 @@ const Home = () => {
     "Email deliverability became a problem",
   ];
 
+  const swipeRef = useRef();
+
+  function handleClRight() {
+    if (swipeRef.current) {
+      swipeRef.current.slideNext();
+    }
+  }
+  function handleClLeft() {
+    if (swipeRef.current) {
+      swipeRef.current.slidePrev();
+    }
+  }
+
   return (
     <div>
       <div
-        className="container max-w-full bg-no-repeat bg-right bg-cover flex items-center p-[20px]"
+        className="section1 bg-no-repeat bg-right bg-cover flex items-center p-[20px]"
         style={{
           backgroundImage: `url(${bgWave})`,
           backgroundPosition: "right",
@@ -53,14 +70,14 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="container max-w-full grid grid-cols-6 items-center max-md:grid-cols-3 gap-[40px] p-[20px_40px] border-y border-y-[#D1D1D1]">
+      <div className="section2 max-w-full grid grid-cols-6 items-center max-md:grid-cols-3 gap-[40px] p-[20px_40px] border-y border-y-[#D1D1D1]">
         {imgList.map((e, i) => {
           return <img key={i} src={e} />;
         })}
       </div>
 
       <div
-        className="container max-w-full bg-no-repeat bg-right bg-cover p-[20px] max-md:p-[10px]"
+        className="section3 bg-no-repeat bg-right bg-cover p-[20px] max-md:p-[10px]"
         style={{
           backgroundImage: `url(${bgWave2})`,
           backgroundPosition: "left",
@@ -75,10 +92,93 @@ const Home = () => {
           </div>
           <div>
             <ul className="list-disc marker:text-[#F5333F] flex flex-col max-md:ml-[20px] max-md:text-[14px] text-[24px] font-[400]">
-              {ulList.map((e) => {
-                return <li>{e}</li>;
+              {ulList.map((e, i) => {
+                return <li key={i}>{e}</li>;
               })}
             </ul>
+          </div>
+        </div>
+      </div>
+      <div className="section4 flex justify-between items-center p-[20px_40px] gap-[30px] max-md:flex-col">
+        <div className="block1">
+          <Swiper
+            onSwiper={(swiper) => (swipeRef.current = swiper)}
+            effect={"cards"}
+            grabCursor={true}
+            modules={[EffectCards]}
+            className="mySwiper max-h-[425px]"
+          >
+            <SwiperSlide>
+              <img src={Rec2} alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Rec3} alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={Rec4} alt="" />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+        <div className="block2">
+          <img src={levHaolam} alt="" />
+          <div className="flex gap-3 font-[700] text-[16px]">
+            <div className="text-[#F5333F]">
+              <div>Result:</div>
+              <div>Type:</div>
+              <div>Company:</div>
+              <div>Product:</div>
+              <div>Platform:</div>
+            </div>
+            <div>
+              <div>$20K per email campaign</div>
+              <div>Subscription e-commerce</div>
+              <div>Lev Haolam</div>
+              <div>Handmade gifts from Israel</div>
+              <div>Klaviyo</div>
+            </div>
+          </div>
+          <div>
+            <button className="text-[12px] font-[600] p-[5px_10px] text-[#F5333F] border rounded-[5px] border-[#F5333F]">
+              LEARN MORE
+            </button>
+            <div className="flex gap-[20px] my-2">
+              <button
+                onClick={handleClLeft}
+                className="border rounded-full p-1 border-[#C2C2C2]"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-[16px] h-[16px] rotate-90 text-[#C2C2C2]"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+              <button
+                onClick={handleClRight}
+                className="border rounded-full p-1 border-[#C2C2C2]"
+              >
+                <svg
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  className="w-[16px] h-[16px] rotate-[-90deg] text-[#C2C2C2]"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M19 9l-7 7-7-7"
+                  ></path>
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </div>
