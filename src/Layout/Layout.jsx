@@ -54,7 +54,7 @@ const Layout = () => {
           </button>
         </div>
       </div>
-      <div className="min-h-screen">
+      <div className="sec">
         <Outlet />
       </div>
       <div className="footer bg-[#212121] p-[80px_40px] max-md:[40px_20px]">
