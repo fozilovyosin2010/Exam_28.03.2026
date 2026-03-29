@@ -32,6 +32,7 @@ const Todo = () => {
     try {
       let { data } = await axios.get(`${api}/api/to-dos`);
       setTodos(data.data);
+      console.log(data.data);
     } catch (error) {
       console.error(error);
     }
@@ -120,6 +121,10 @@ const Todo = () => {
 
     postData(formData);
     handleCloseAdd();
+
+    event.target["name"].value = "";
+    event.target["description"].value = "";
+    event.target["image"].value = "";
   };
   const [openEdit, setOpenEdit] = useState(false);
 
