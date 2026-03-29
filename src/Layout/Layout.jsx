@@ -1,12 +1,13 @@
 import React, { useRef, useState } from "react";
 
-import { Link, Links, Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 
 import Logo from "../img/Logo (5).svg";
 
 import faceB from "../img/faceB.svg";
 import linkedIn from "../img/linkedIn.svg";
 import twit from "../img/twit.svg";
+import { useTranslation } from "react-i18next";
 
 const Layout = () => {
   const menuRef = useRef();
@@ -15,6 +16,8 @@ const Layout = () => {
   function handleMenuClick() {
     setToggle((e) => !e);
   }
+
+  const { t, i18n } = useTranslation();
 
   return (
     <div className="roboto">
@@ -28,20 +31,36 @@ const Layout = () => {
             </div>
             <nav className="flex gap-[30px] font-[400] text-[16px] max-md:hidden">
               <Link className="hover:underline" to={"/todo"}>
-                Services
+                {t("header.t1")}
               </Link>
               <Link className="hover:underline" to={"#"}>
-                Portfolio
+                {t("header.t2")}
               </Link>
               <Link className="hover:underline" to={"#"}>
-                Email Marketing Audit
+                {t("header.subtitle")}
               </Link>
             </nav>
           </div>
 
-          <button className="max-md:hidden bg-[#F5333F] p-[10px_25px] rounded-[5px] font-[500] text-[#fff]">
-            CONTACT US
-          </button>
+          <div className="flex gap-4 items-center">
+            <div>
+              <button
+                className="border p-[5px_10px]"
+                onClick={() => i18n.changeLanguage("ru")}
+              >
+                ru
+              </button>
+              <button
+                className="border p-[5px_10px]"
+                onClick={() => i18n.changeLanguage("en")}
+              >
+                en
+              </button>
+            </div>
+            <button className="max-md:hidden bg-[#F5333F] p-[10px_25px] rounded-[5px] font-[500] text-[#fff]">
+              {t("header.button")}
+            </button>
+          </div>
           {/* menu */}
           <button
             onClick={handleMenuClick}
@@ -67,26 +86,26 @@ const Layout = () => {
               <nav className="font-[400] text-gray-500 text-[14px] max-md:flex-col flex gap-[50px]">
                 <div className="flex flex-col max-md:items-center gap-1">
                   <Link className="hover:underline" to="/todo">
-                    Services
+                    {t("footer.menu.about")}
                   </Link>
                   <a className="hover:underline" href="#">
-                    About Us
+                    {t("footer.menu.aboutUs")}
                   </a>
                 </div>
                 <div className="flex flex-col max-md:items-center gap-1">
                   <a className="hover:underline" href="#">
-                    Email Marketing Audit
+                    {t("footer.menu.audit")}
                   </a>
                   <a className="hover:underline" href="#">
-                    Portfolio
+                    {t("footer.menu.portfolio")}
                   </a>
                 </div>
                 <div className="flex flex-col max-md:items-center gap-1">
                   <a className="hover:underline" href="#">
-                    Blog
+                    {t("footer.menu.blog")}
                   </a>
                   <a className="hover:underline" href="#">
-                    Privacy Policy
+                    {t("footer.menu.privacy")}
                   </a>
                 </div>
               </nav>

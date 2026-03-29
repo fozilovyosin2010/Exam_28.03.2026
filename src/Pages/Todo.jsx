@@ -224,7 +224,7 @@ const Todo = () => {
                     <div className="flex justify-end">
                       <img
                         className="w-[100px]"
-                        src={`${api}/images/${elem.images[0].imageName}`}
+                        src={`${api}/images/${elem.images[0]?.imageName}`}
                         alt=""
                       />
                     </div>

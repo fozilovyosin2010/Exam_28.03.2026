@@ -1,0 +1,73 @@
+{
+  "footer": {
+    "menu": {
+      "about": "Todo",
+      "aboutUs": "About Us",
+      "audit": "Email Marketing Audit",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "header": {
+    "t1": "Services",
+    "t2": "Portfolio",
+    "subtitle": "Email Marketing Audit",
+    "button": "CONTACT US"
+  },
+
+  "hero": {
+    "title1": "BOOST",
+    "title2": "YOUR EMAIL MARKETING RESULTS!",
+    "subtitle": "We help B2C brands grow their email-attributed revenue",
+    "button": "BOOST YOUR RESULTS"
+  },
+  "section3": {
+    "title1": "We are here to",
+    "highlight": "help",
+    "title2": "when:",
+    "list": [
+      "Your email revenue is 20% or less",
+      "You need ideas to grow your email channel",
+      "You want expert help with implementing strategies",
+      "Your competitors' emails outperform yours",
+      "Email deliverability became a problem"
+    ]
+  },
+  "section5": {
+    "title1": "WE",
+    "highlight": "TAKE CARE",
+    "title2": "OF ALL YOUR EMAIL MARKETING ACTIVITIES",
+    "services": [
+      "Planning",
+      "Design",
+      "Copywriting",
+      "Analytics",
+      "Deliverability",
+      "Automation"
+    ]
+  },
+  "testimonials": {
+    "title": "TESTIMONIALS",
+    "items": [
+      {
+        "des": "You have ensured a systematic approach to our email strategy and helped us streamline all chaotic thoughts and ideas we had about our emails!",
+        "name": "Natalia Pereldik",
+        "role": "CEO, Funexpected Games"
+      },
+      {
+        "des": "You have shown great professionalism and attention to detail when it comes to email marketing!",
+        "name": "Ron Shalev",
+        "role": "Founder, BYB Media"
+      }
+    ]
+  },
+  "subscribe": {
+    "title1": "SUBSCRIBE TO",
+    "highlight": "L.U.Y.E",
+    "subtitle": "Level Up Your Email Newsletter",
+    "placeholder": "Your Email",
+    "button": "SUBSCRIBE",
+    "agreement": "Do you agree to receive emails?"
+  }
+}

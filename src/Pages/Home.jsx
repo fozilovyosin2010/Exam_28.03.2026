@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 import bgWave from "../img/waveBg.png";
 import bgWave2 from "../img/waveBg2.png";
@@ -26,6 +26,7 @@ import FrameRed from "../img/FrameRed.svg";
 
 import triAng from "../img/triAng.svg";
 import imgAngle from "../img/imgAngle.png";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
   const cardList = [
@@ -64,6 +65,8 @@ const Home = () => {
     }
   }
 
+  const { t, i18n } = useTranslation();
+
   return (
     <div>
       <div
@@ -77,14 +80,14 @@ const Home = () => {
       >
         <div className="block1 flex flex-col gap-3 items-start z-10 relative">
           <div className="max-w-[1163px] max-md:max-w-full max-md:text-[50px] font-[700] text-[100px]">
-            <span className="text-[#F5333F]">BOOST</span> YOUR EMAIL MARKETING
-            RESULTS!
+            <span className="text-[#F5333F]">{t("hero.title1")}</span>{" "}
+            {t("hero.title2")}
           </div>
           <div className="text-[#000000] font-[300] text-[32px] max-md:text-[14px]">
-            We help B2C brands grow their email-attributed revenue
+            <div>{t("hero.subtitle")}</div>
           </div>
           <button className="bg-[#F5333F] max-md: p-[10px_25px] text-[20px] rounded-[5px] font-[500] text-[#fff]">
-            BOOST YOUR RESULTS
+            {t("hero.button")}
           </button>
         </div>
       </div>
@@ -105,14 +108,15 @@ const Home = () => {
       >
         <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] flex max-lg:flex-wrap justify-between m-[40px] gap-[50px] items-center rounded-[20px] p-[100px_80px] max-md:flex-col max-md:items-center max-md:gap-[25px] max-md:m-[20px] max-md:p-[25px_20px]">
           <div className="font-[700] text-[100px] max-w-[831px] max-md:text-[28px] max-md:max-w-full">
-            We are here to
-            <span className="text-[#F5333F]"> help </span> when:
+            {t("section3.title1")}
+            <span className="text-[#F5333F]"> {t("section3.highlight")} </span>
+            {t("section3.title2")}
           </div>
           <div>
             <ul className="list-disc marker:text-[#F5333F] flex flex-col max-md:ml-[20px] max-md:text-[14px] text-[24px] font-[400]">
-              {ulList.map((e, i) => {
-                return <li key={i}>{e}</li>;
-              })}
+              {t("section3.list", { returnObjects: true }).map((item, i) => (
+                <li key={i}>{item}</li>
+              ))}
             </ul>
           </div>
         </div>
@@ -212,16 +216,19 @@ const Home = () => {
         <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] m-[40px] rounded-[20px] p-[100px_80px] max-md:p-[25px_20px] max-md:m-[20px]">
           <div className="block1 flex gap-[30px] max-lg:flex-wrap max-md:gap-[10px]">
             <div className="text-[80px] font-[700] max-w-[1261px] max-lg:text-[28px]">
-              WE <span className="text-[#F5333F]">TAKE CARE</span> OF ALL YOUR
-              EMAIL MARKETING ACTIVITIES
+              {t("section5.title1")}
+              <span className="text-[#F5333F]">
+                {" "}
+                {t("section5.highlight")}{" "}
+              </span>
+              {t("section5.title2")}
             </div>
             <ul className="list-disc marker:text-[#F5333F] py-[20px] ml-[20px] flex flex-col justify-between">
-              <li>Planning</li>
-              <li>Design</li>
-              <li>Copywriting</li>
-              <li>Analitics</li>
-              <li>Delaverabilty</li>
-              <li>Automation</li>
+              {t("section5.services", { returnObjects: true }).map(
+                (item, i) => (
+                  <li key={i}>{item}</li>
+                ),
+              )}
             </ul>
           </div>
           <div className="block2 font-[600] font-semibold text-[20px] text-[#FFFFFF] flex justify-between gap-[30px] max-md:flex-col">
@@ -246,32 +253,16 @@ const Home = () => {
       <div className="section6 relative p-5 pr-0 flex items-center overflow-x-hidden max-lg:flex-wrap max-lg:justify-center max-lg:pr-5">
         <div className="block1 min-w-1/2">
           <div className="font-[700] text-[80px] max-md:text-[28px] max-md:px-5">
-            TESTIMONIALS
+            {t("testimonials.title")}
           </div>
           <div className="flex flex-col gap-5">
-            {cardList.map((e, i) => {
-              return (
-                <div
-                  key={i}
-                  className="rounded-[20px] flex items-start shadow-[0_0_33px_#00000040] border border-[#D1D1D1] flex gap-5 p-5 m-5"
-                >
-                  <img src={FrameRed} alt="" />
-                  <div className="flex flex-col gap-3">
-                    <div className="text-[#212121] font-[400] text-[20px] max-w-[663px]">
-                      {e.des}
-                    </div>
-                    <div>
-                      <div className="text-[#F5333F] text-[18px] font-[500]">
-                        {e.name}
-                      </div>
-                      <div className="text-[#000000] text-[18px] font-[500]">
-                        {e.role}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
+            {t("testimonials.items", { returnObjects: true }).map((e, i) => (
+              <div key={i}>
+                <div>{e.des}</div>
+                <div>{e.name}</div>
+                <div>{e.role}</div>
+              </div>
+            ))}
           </div>
         </div>
         <div className="block2 relative right-0">
@@ -284,12 +275,13 @@ const Home = () => {
         </div>
       </div>
       <div className="section7">
-        <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] m-[40px] rounded-[20px] p-[100px_80px] flex justify-between gap-[40px] max-lg:flex-wrap max-md:p-[25px_20px] max-md:m-[20px]">
+        <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] m-[40px] rounded-[20px] p-[100px_80px] flex justify-between gap-[70px] max-lg:flex-wrap max-md:p-[25px_20px] max-md:m-[20px]">
           <div className="block1">
             <h1 className="text-[80px] font-[700] max-w-[559px] max-md:text-[28px]">
-              SUBSCRIBE TO <span className="text-[#F5333F]">L.U.Y.E</span>
+              {t("subscribe.title1")}
+              <span className="text-[#F5333F]">{t("subscribe.highlight")}</span>
             </h1>
-            <div className="text-[#F5333F]">Level Up Your Email Newsletter</div>
+            <div className="text-[#F5333F]">{t("subscribe.subtitle")}</div>
           </div>
           <div className="block2 max-w-[898px]">
             <div className="miniBlock1 font-[400] flex flex-col gap-[30px]">
@@ -312,16 +304,20 @@ const Home = () => {
             </div>
             <div className="miniBlock2">
               <div className="text-[40px] font-[700]">
-                Subscribe to L.U.Y.E.
+                {t("subscribe.title1")}
+                <span className="text-[#F5333F]">
+                  {" "}
+                  {t("subscribe.highlight")}{" "}
+                </span>
               </div>
               <form className="max-w-full flex justify-between">
                 <input
                   type="text"
-                  placeholder="Your Email"
+                  placeholder={t("subscribe.placeholder")}
                   className="bg-[#fff] p-3 w-full rounded-l-[5px] placeholder:text-[#000] outline-none"
                 />
                 <button className="bg-[#F5333F] p-3 rounded-r-[5px]">
-                  SUBSCRIBE
+                  {t("subscribe.button")}
                 </button>
               </form>
               <span>Согласие на получение писем?</span>
