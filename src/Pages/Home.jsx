@@ -103,7 +103,7 @@ const Home = () => {
           backgroundSize: "50% 100%",
         }}
       >
-        <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] flex flex-wrap justify-between m-[40px] gap-[50px] items-center rounded-[20px] p-[100px_80px] max-md:flex-col max-md:items-center max-md:gap-[25px] max-md:m-[20px] max-md:p-[25px_20px]">
+        <div className="bg-[#212121] shadow-[0_0_33px_#00000040] text-[#fff] flex max-lg:flex-wrap justify-between m-[40px] gap-[50px] items-center rounded-[20px] p-[100px_80px] max-md:flex-col max-md:items-center max-md:gap-[25px] max-md:m-[20px] max-md:p-[25px_20px]">
           <div className="font-[700] text-[100px] max-w-[831px] max-md:text-[28px] max-md:max-w-full">
             We are here to
             <span className="text-[#F5333F]"> help </span> when:
